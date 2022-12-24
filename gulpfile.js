@@ -78,8 +78,20 @@ async function images() {
     )
 }
 
+function cleandist() {
+    return src('dist',
+        {allowEmpty: true})
+        .pipe(clean()) // Удаляем всё содержимое папки dist
+}
+function cleanimg() {
+    return src('app/images/dest/',
+        {allowEmpty: true})
+        .pipe(clean()) // Удаляем всё содержимое папки "app/images/dest/"
+}
 function cleanall() {
-    return src(['dist', 'app/css'], {allowEmpty: true}).pipe(clean()) // Удаляем всё содержимое папки "dist/"
+    return src(['app/images/dest/', 'app/css/', 'dist'],
+        {allowEmpty: true})
+        .pipe(clean()) // Удаляем всё содержимое компилируемых папок
 }
 
 function buildcopy() {
@@ -121,11 +133,17 @@ exports.styles = styles;
 // Экспорт функции images() в таск images
 exports.images = images;
 
-// Экспортируем функцию cleandist() и cleanimg() в таск cleandist и cleanimg
-exports.clean = cleanall
+// Экспорт функции images() в таск images
+exports.images = images;
+
+// Экспортируем функцию cleanimg() как таск cleanimg
+exports.cleanimg = cleanimg;
+
+// Экспортируем функцию cleanall() как таск cleanall
+exports.cleanall = cleanall;
 
 // Создаём новый таск "build", который последовательно выполняет нужные операции
-exports.build = series(cleanall, styles, scripts, images, buildcopy);
+exports.build = series(cleandist, styles, scripts, images, buildcopy);
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = parallel(styles, scripts, browsersync, startwatch);
