@@ -79,7 +79,7 @@ async function images() {
 }
 
 function cleanall() {
-    return src(['dist', 'app/images/dest/', 'app/css'], {allowEmpty: true}).pipe(clean()) // Удаляем всё содержимое папки "dist/"
+    return src(['dist', 'app/css'], {allowEmpty: true}).pipe(clean()) // Удаляем всё содержимое папки "dist/"
 }
 
 function buildcopy() {
