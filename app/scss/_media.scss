@@ -96,6 +96,9 @@
   .admin__img-icon{
     padding-right: 0;
   }
+  .modal-content{
+    margin-left: 0;
+  }
 }
 @media screen and (max-width: 770px){
   .tables__content{
@@ -116,6 +119,9 @@
   .tables__tabs{
     overflow: auto;
   }
+  .modal-footer{
+    justify-content: center;
+  }
 }
 @media screen and (max-width: 480px){
   .main__top{
@@ -133,9 +139,15 @@
     align-items: flex-start;;
     margin-top: 15px;
   }
+  .tables__content{
+    max-width: 240px;
+  }
 }
 @media screen and (max-width: 380px){
   .content{
     width: 80%;
+  }
+  .tables__content{
+    max-width: 180px;
   }
 }

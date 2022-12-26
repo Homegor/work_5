@@ -189,12 +189,12 @@
   padding-top: 30px;
   padding-bottom: 27px;
   &__form-control{
-    max-width: 415px;
+    width: 380px;
     height: 36px;
   }
   &__input-group{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   &__input-group-text{
     display: flex;
