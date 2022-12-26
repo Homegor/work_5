@@ -139,6 +139,9 @@ exports.cleanimg = cleanimg;
 // Экспортируем функцию cleanall() как таск cleanall
 exports.cleanall = cleanall;
 
+// Экспортируем функцию cleandist() как таск cleandist
+exports.cleandist = cleandist;
+
 // Создаём новый таск "build", который последовательно выполняет нужные операции
 exports.build = series(cleandist, styles, scripts, images, buildcopy);
 
